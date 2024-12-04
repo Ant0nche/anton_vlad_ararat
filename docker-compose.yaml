@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  sqlite3:
+    image: keinos/sqlite3
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+  server:
+    container_name: medhelper_server
+    hostname: medhelper
+    build:
+      context: .  # Указывает на текущую директорию
+      dockerfile: Dockerfile
+    ports:
+      - "33333:33333"  # Привязка порта
+    restart: always
+    depends_on:
+      - sqlite3  # Зависимость от SQLite
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=:0
