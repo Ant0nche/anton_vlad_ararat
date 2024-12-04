@@ -1,5 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource prefix="/">
-<file alias="medhelper.db">/home/anton221-353/MedHelperQt/medhelper.db</file>
-</qresource>
-</RCC>
